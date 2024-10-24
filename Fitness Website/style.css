@@ -1,0 +1,99 @@
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#header{
+	background-image: url('images/banner.jpg');
+	height: 80vh;
+	background-size: cover;
+	background-position: center;
+}
+
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	padding-top:20px ;
+}
+li{float: left;}
+
+li a{
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	padding: 16px;
+	font-size: 20px;
+}
+li a:hover{
+	text-decoration: none;
+	color: crimson;
+}
+
+/*--Welcome section---*/
+
+.welcome{
+	background: white;
+	margin-top:-140px;
+	padding: 50px 100px;
+	box-shadow: 0 0 20px 7px rgba(0,0,0,0.2);
+}
+
+.welcome h1{
+	color: #333;
+}
+
+.welcome .home-btn{
+	margin-top: 10px;
+	padding: 10px 30px;
+	border-radius: 30px;
+	color: white;
+	background-color: #013f7e;
+	text-decoration: none;
+}
+
+/*--About section---*/
+#about{
+padding-top: 100px;
+padding-bottom: 100px; 
+}
+
+#about .col-md-6{
+	padding: 20px 10px;
+}
+#about h3{
+	margin: 20px auto;
+}
+
+/*--Services section---*/
+
+#services{
+	background-color: #efefef;
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+	#services .col-md-4{
+		padding: 20px;
+	}
+	#services .col-md-4 h4{
+		padding: 5px;
+	}
+	#services .col-md-4 img{
+		width: 50px;
+	}
+	#services .col-md-4 p{
+		padding: 5px;
+		text-align: justify;
+	}
+	
+
+
+
+
+
+
+
+
+
