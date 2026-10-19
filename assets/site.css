@@ -87,7 +87,11 @@ p{margin:0}
 .nav>ul>li>a,.nav>ul>li>button{display:block;white-space:nowrap;font:700 .76rem/1 var(--f-body);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:none;border:0;padding:12px 8px;cursor:pointer;border-radius:var(--r)}
 .nav>ul>li>a:hover,.nav>ul>li>button:hover,.nav a[aria-current="page"]{color:var(--gold-ink)}
 .nav a[aria-current="page"]{box-shadow:inset 0 -2px 0 var(--gold)}
-.nav .has-sub>button::after{content:"";display:inline-block;width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translate(-2px,-2px);margin-left:7px}
+.nav .has-sub{display:flex;align-items:center}
+.nav .sub-tg{display:grid;place-items:center;width:22px;height:34px;margin-left:-6px;padding:0;background:none;border:0;color:var(--ink);cursor:pointer;border-radius:var(--r)}
+.nav .sub-tg::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.nav .has-sub.open .sub-tg::after{transform:translateY(1px) rotate(225deg)}
+.nav .sub-tg:hover{color:var(--gold-ink)}
 .sub{list-style:none;margin:0;padding:10px;position:absolute;top:100%;left:0;min-width:240px;background:var(--card);border:1px solid var(--line);border-top:2px solid var(--gold);box-shadow:var(--shadow);border-radius:0 0 var(--r) var(--r);opacity:0;visibility:hidden;transform:translateY(6px);transition:.18s}
 .has-sub:hover .sub,.has-sub:focus-within .sub,.has-sub.open .sub{opacity:1;visibility:visible;transform:none}
 .sub a{display:block;padding:9px 12px;text-decoration:none;font-size:.92rem;border-radius:var(--r)}
@@ -107,12 +111,12 @@ p{margin:0}
   .nav>ul>li>a,.nav>ul>li>button{padding:16px 6px;width:100%;text-align:left;font-size:.86rem}
   .sub{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;display:none;background:transparent;padding:0 0 10px 10px}
   .has-sub.open .sub{display:block}
-  .menu-btn{display:grid;z-index:56}
+  .menu-btn{display:grid}
   .hdr-cta{display:none}
   .nav-close{position:absolute;top:calc(20px + env(safe-area-inset-top,0px));right:20px}
 }
 @media (min-width:1321px){.nav-close{display:none}}
-.scrim{position:fixed;inset:0;background:rgba(7,14,24,.5);z-index:54;opacity:0;visibility:hidden;transition:.2s}
+.scrim{position:fixed;inset:0;background:rgba(7,14,24,.5);z-index:45;opacity:0;visibility:hidden;transition:.2s}
 .scrim.on{opacity:1;visibility:visible}
 
 /* ---------- search overlay ---------- */
@@ -331,7 +335,7 @@ p{margin:0}
 
 .cal{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
 .cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.cal-head h3{font-size:1.4rem;text-transform:capitalize}
+.cal-head h2{font-size:1.4rem;text-transform:capitalize}
 .cal-head button{width:36px;height:36px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:50%;cursor:pointer}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-variant-numeric:tabular-nums}
 .cal-grid .dow{font:700 .66rem var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);padding:6px 0}
@@ -462,7 +466,7 @@ p{margin:0}
 .f-brand{display:grid;gap:16px;align-content:start}
 .f-brand .brand-name{color:var(--on-navy)}
 .f-brand .brand-sub{color:var(--on-navy-soft)}
-.site-footer h4{font:600 .74rem var(--f-cap);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.site-footer .f-h{font:600 .74rem var(--f-cap);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 .site-footer ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
 .site-footer a{text-decoration:none}
 .site-footer a:hover{color:var(--gold)}
@@ -517,3 +521,30 @@ p{margin:0}
 .lb-link{color:#C9A46A;font-weight:700;text-decoration:none}
 .g-count{font-size:.85rem;color:var(--ink-soft);margin-right:10px}
 @media (max-width:600px){.wall{columns:2;column-gap:10px}.wall .tile{margin-bottom:10px}.tile .cap{display:none}.wall.grid{grid-template-columns:repeat(2,1fr);gap:10px}.g-albums{gap:10px}}
+
+/* language switcher */
+.lang{position:relative}
+.lang-btn{height:42px;display:inline-flex;align-items:center;gap:6px;padding:0 12px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:21px;cursor:pointer;font:700 .74rem var(--f-body);letter-spacing:.08em}
+.lang-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6}
+.lang-btn:hover,.lang-btn[aria-expanded="true"]{border-color:var(--gold);color:var(--gold-ink)}
+.lang-menu{list-style:none;margin:0;padding:8px;position:absolute;right:0;top:calc(100% + 8px);min-width:220px;background:var(--card);border:1px solid var(--line);border-top:2px solid var(--gold);border-radius:0 0 var(--r) var(--r);box-shadow:var(--shadow);z-index:60}
+.lang-menu a{display:flex;gap:10px;align-items:center;padding:10px 12px;text-decoration:none;border-radius:var(--r);font-size:.92rem}
+.lang-menu a:hover{background:var(--paper-2)}
+.lang-menu a[aria-current="true"]{font-weight:700;color:var(--gold-ink)}
+.lang-menu a[aria-current="true"]::after{content:"✓";margin-left:auto}
+.flag-code{font:700 .66rem var(--f-body);letter-spacing:.1em;border:1px solid var(--line);border-radius:3px;padding:3px 5px;min-width:28px;text-align:center}
+@media (max-width:1320px){
+  .nav .has-sub{flex-wrap:wrap}
+  .nav .has-sub>a{flex:1;width:auto;padding:16px 6px;font-size:.86rem}
+  .nav .sub-tg{width:48px;height:48px;margin:0;border-left:1px solid var(--line);border-radius:0}
+  .nav .has-sub .sub{flex-basis:100%}
+}
+@media (max-width:520px){.lang-btn{padding:0 9px;height:38px}.lang-btn .lang-code{display:none}.icon-btn{width:38px;height:38px}.hdr-actions{gap:6px}}
+@media (max-width:440px){.brand-sub{display:none}.brand-name{font-size:1.05rem}.brand{gap:8px}}
+
+.site-footer .link-arrow{color:var(--gold)}
+.h-aside{font-size:1.3rem}
+@media (min-width:1321px) and (max-width:1480px){.site-header .brand-sub{display:none}.site-header .wrap{gap:16px}.nav>ul>li>a{padding-left:7px;padding-right:7px}}
+
+.hdr-cta{display:none!important}
+.site-header .wrap,.topbar .wrap{max-width:1400px}
