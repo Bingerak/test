@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /membros.html
+Sitemap: https://www.seudominio.org.br/sitemap.xml
